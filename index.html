@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.counter {
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 100px;
+			font-size: 40px;
+			margin: 10px;
+			color: black;
+		}
+
+		.zero {
+			background-color: red;
+			color: white;
+		}
+
+		section, h1, p {
+			display: grid;
+			justify-items: center;
+			align-items: center;
+		  }
+	</style>
+</head>
+<body>
+    <h1>Hard Copy Availability</h1>
+    <p>Click the button when a copy was sold and the visitor wants a hard copy.</p>
+    <section>
+        <h2>Python Basics</h2>
+        <div class="counter" id="counter1" onclick="reduceCount('counter1')">10</div>
+    </section>
+    <section>
+        <h2>Python Tricks</h2>
+        <div class="counter" id="counter2" onclick="reduceCount('counter2')">10</div>
+    </section>
+    <section>
+        <h2>CPython Internals</h2>
+        <div class="counter" id="counter3" onclick="reduceCount('counter3')">10</div>
+    </section>
+	<script>
+		function reduceCount(counterId) {
+			var counter = document.getElementById(counterId);
+			var count = parseInt(counter.innerHTML);
+			if (count > 0) {
+				count--;
+				counter.innerHTML = count;
+				if (count == 0) {
+					counter.classList.add('zero');
+				}
+			}
+		}
+	</script>
+</body>
+</html>
